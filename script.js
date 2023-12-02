@@ -236,12 +236,15 @@ console.log(obj1);
 const obj2 = createObject(keys, values2);
 console.log(obj2);
 
+// create an empty array to store the object
 
+const result = [];
+result.push(obj1, obj2);
+console.log(result);
 
-
-
-
+return result;
 }
+
 
 const result = getLearnerData(CourseInfo, AssignmentGroup, LearnerSubmissions);
 console.log(result);
