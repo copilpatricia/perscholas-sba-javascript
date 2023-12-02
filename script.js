@@ -174,21 +174,40 @@ function getLearnerData(course, ag, submissions) {
     return (a + b) / (c + d);
   }
 
-  function findScore(a,b){
-    return a / b
+  function findScore(a, b) {
+    return a / b;
   }
 
-const avg125 = findAvg(score_1_125, score_2_125, points_possible_1, points_possible_2);
-console.log(avg125);
+  const avg125 = findAvg(
+    score_1_125,
+    score_2_125,
+    points_possible_1,
+    points_possible_2
+  );
+  console.log(avg125);
 
-const score1_125 = findScore(score_1_125, points_possible_1)
-console.log(score1_125);
+  const score1_125 = findScore(score_1_125, points_possible_1);
+  console.log(score1_125);
 
-const score2_125 = findScore(score_2_125, points_possible_2)
-console.log(score2_125);
-
+  const score2_125 = findScore(score_2_125, points_possible_2);
+  console.log(score2_125);
 
   // Avg score for student 132
+
+  //find new score for 132 - late submission
+  let latePenalty;
+  if(submission_at_2_132 > due_at_2){
+    latePenalty = 0.1 * points_possible_2;
+  }
+  console.log(latePenalty);
+
+  const score_latePenalty = score_2_132 - latePenalty;
+  console.log(points_possible_latePenalty);
+  console.log(score_latePenalty);
+
+
+
+
 }
 
 const result = getLearnerData(CourseInfo, AssignmentGroup, LearnerSubmissions);
