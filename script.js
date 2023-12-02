@@ -107,19 +107,18 @@ function getLearnerData(course, ag, submissions) {
   // for (let i = 0; i < ag.length; i++) {
   //   const id = ag.assignements[i].id;
 
-  
   console.log("=======Info for LearnerSubmission======");
   console.log("=======learners id======");
   const learnerId_125 = submissions[0].learner_id;
   console.log(learnerId_125);
   const learnerId_132 = submissions[3].learner_id;
   console.log(learnerId_132);
-  
+
   console.log("=======assignment_id======");
   let assignmentId_1;
   let assignmentId_2;
   let assignmentId_3;
-  
+
   for (let i = 0; i < submissions.length - 2; i++) {
     const assignmentId = submissions[i].assignment_id;
     // Assign assignment_ids to variables based on the object index
@@ -127,22 +126,22 @@ function getLearnerData(course, ag, submissions) {
       case 0:
         assignmentId_1 = assignmentId;
         break;
-        case 1:
-          assignmentId_2 = assignmentId;
-          break;
+      case 1:
+        assignmentId_2 = assignmentId;
+        break;
       case 2:
         assignmentId_3 = assignmentId;
         break;
-        default:
+      default:
         break;
     }
   }
   console.log(assignmentId_1);
   console.log(assignmentId_2);
   console.log(assignmentId_3);
-  
+
   console.log("=======submission_date======");
-  
+
   const submission_at_1_125 = submissions[0].submission.submitted_at;
   console.log(submission_at_1_125);
   const submission_at_2_125 = submissions[1].submission.submitted_at;
@@ -153,9 +152,9 @@ function getLearnerData(course, ag, submissions) {
   console.log(submission_at_1_132);
   const submission_at_2_132 = submissions[4].submission.submitted_at;
   console.log(submission_at_2_132);
-  
+
   console.log("=======score======");
-  
+
   const score_1_125 = submissions[0].submission.score;
   console.log(score_1_125);
   const score_2_125 = submissions[1].submission.score;
@@ -166,45 +165,60 @@ function getLearnerData(course, ag, submissions) {
   console.log(score_1_132);
   const score_2_132 = submissions[4].submission.score;
   console.log(score_2_132);
-  
-console.log("========finding avg & scores for learnes");
 
+  console.log("========finding avg & scores for learnes");
+
+  // Avg for student 125
+
+  function findAvg(a, b, c, d) {
+    return (a + b) / (c + d);
   }
-  
-  
-  // Avg score for student 132
 
-  
-  
-  const result = getLearnerData(CourseInfo, AssignmentGroup, LearnerSubmissions);
+  function findScore(a,b){
+    return a / b
+  }
+
+const avg125 = findAvg(score_1_125, score_2_125, points_possible_1, points_possible_2);
+console.log(avg125);
+
+const score1_125 = findScore(score_1_125, points_possible_1)
+console.log(score1_125);
+
+const score2_125 = findScore(score_2_125, points_possible_2)
+console.log(score2_125);
+
+
+  // Avg score for student 132
+}
+
+const result = getLearnerData(CourseInfo, AssignmentGroup, LearnerSubmissions);
 console.log(result);
 
 // const result = [
-  //   {
-    //     id: 125,
-    //     avg: 0.985, // (47 + 150) / (50 + 150)
-    //     1: 0.94, // 47 / 50
-    //     2: 1.0 // 150 / 150
-    //   },
-    //   {
-      //     id: 132,
-      //     avg: 0.82, // (39 + 125) / (50 + 150)
-      //     1: 0.78, // 39 / 50
-      //     2: 0.833 // late: (140 - 15) / 150
-      //   }
-      // ];
-      
-      // return result;
-      
-      //   // Assign assignment_ids to variables based on the object index
-      //   if (i === 0) {
-      //     id1 = id;
-      //   } else if (i === 1) {
-      //     id2 = id;
-      //   } else if (i === 2) {
-      //     id3 = id;
-      //   } else if (i === 3) {
-      //     id4 = id;
-      //   }
-      // }
-      
+//   {
+//     id: 125,
+//     avg: 0.985, // (47 + 150) / (50 + 150)
+//     1: 0.94, // 47 / 50
+//     2: 1.0 // 150 / 150
+//   },
+//   {
+//     id: 132,
+//     avg: 0.82, // (39 + 125) / (50 + 150)
+//     1: 0.78, // 39 / 50
+//     2: 0.833 // late: (140 - 15) / 150
+//   }
+// ];
+
+// return result;
+
+//   // Assign assignment_ids to variables based on the object index
+//   if (i === 0) {
+//     id1 = id;
+//   } else if (i === 1) {
+//     id2 = id;
+//   } else if (i === 2) {
+//     id3 = id;
+//   } else if (i === 3) {
+//     id4 = id;
+//   }
+// }
