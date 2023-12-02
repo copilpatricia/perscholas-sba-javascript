@@ -199,11 +199,18 @@ function getLearnerData(course, ag, submissions) {
   if(submission_at_2_132 > due_at_2){
     latePenalty = 0.1 * points_possible_2;
   }
-  console.log(latePenalty);
 
   const score_latePenalty = score_2_132 - latePenalty;
-  console.log(points_possible_latePenalty);
-  console.log(score_latePenalty);
+
+  const avg132 = findAvg(score_1_132, score_latePenalty, points_possible_1, points_possible_2);
+  console.log(avg132);
+
+  const score1_132 = findScore(score_1_132, points_possible_1)
+  console.log(score1_132);
+
+  const score2_132 = findScore(score_latePenalty, points_possible_2)
+  console.log(score2_132);
+
 
 
 
