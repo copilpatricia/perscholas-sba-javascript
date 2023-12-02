@@ -203,7 +203,7 @@ function getLearnerData(course, ag, submissions) {
     }
   }
 
-  // error if the value is a number instead a string
+  // error if the value is a number instead of a string
 
   for (let i = 0; i < submissions.length; i++) {
     const score = submissions[i].submission.score;
