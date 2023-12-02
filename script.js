@@ -213,10 +213,12 @@ function getLearnerData(course, ag, submissions) {
 
 // creating objects using a function
 
-const keys1 = ["id", "avg", 1, 2];
+const keys = ["id", "avg", 1, 2];
 const values1 = [];
 values1.push(learnerId_125, avg125, score1_125, score2_125);
 
+const values2 = [];
+values2.push(learnerId_132, avg132, score1_132, score2_132)
 
 function createObject(keys, values){
   const object = {};
@@ -228,10 +230,11 @@ function createObject(keys, values){
   return object
 }
 
-const obj1 = createObject(keys1, values1);
+const obj1 = createObject(keys, values1);
 console.log(obj1);
 
-const obj2 = {};
+const obj2 = createObject(keys, values2);
+console.log(obj2);
 
 
 
