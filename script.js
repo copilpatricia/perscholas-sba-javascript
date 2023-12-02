@@ -176,8 +176,52 @@ function getLearnerData(course, ag, submissions) {
   console.log(score_2_132);
 
   console.log("========errors in the program");
-  
 
+  // error if assignmentgroup does not belong to its course
+  if (ag.course_id !== course.id) {
+    throw new Error(
+      "Invalid input: AssignmentGroup does not belong to the specified course."
+    );
+  }
+
+  // error points_possible is 0
+  for (const assignment of ag.assignments) {
+    const points_possible = assignment.points_possible;
+    const affirmationTrue = points_possible == 0;  // set the value true/false based on the condition points_possible == 0; 
+    const message3 = `The number ${points_possible} is valid.`
+    const message4 = `Error - Number is equal to 0.This affirmation is ${affirmationTrue}`
+    
+    //this condition needs to be false in order to execute the error, so the value of points needs to be 0 to activate the error
+    try {
+      if (points_possible !== 0) {
+        console.log(message3);
+      } else {
+        throw new Error (message4);
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  // error if the value is a number instead a string
+
+  for (let i = 0; i < submissions.length; i++) {
+    const score = submissions[i].submission.score;
+    const message1 = `The ${score} is a number.`;
+    const message2 = `The ${score} is a not a number.`;
+
+
+    try {
+      //this condition needs to be false in order to execute the error, so the value of score needs to be a string  to activate the error
+      if (typeof score === "number") {
+        console.log(message1);
+      } else {
+        throw new Error (message2);
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  }
 
   console.log("========finding avg & scores for learnes");
 
