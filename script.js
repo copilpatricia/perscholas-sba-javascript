@@ -211,9 +211,28 @@ function getLearnerData(course, ag, submissions) {
   const score2_132 = findScore(score_latePenalty, points_possible_2)
   console.log(score2_132);
 
-  const obj1 = {};
-  const obj2 = {};
+// creating objects using a function
+
+const keys1 = ["id", "avg", 1, 2];
+const values1 = [];
+values1.push(learnerId_125, avg125, score1_125, score2_125);
+
+
+function createObject(keys, values){
+  const object = {};
   
+  keys.forEach((key, index) => {
+    object[key] = values[index];
+  })
+  
+  return object
+}
+
+const obj1 = createObject(keys1, values1);
+console.log(obj1);
+
+const obj2 = {};
+
 
 
 
